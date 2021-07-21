@@ -1,5 +1,4 @@
 const path = require('path')
-const { CheckerPlugin } = require('awesome-typescript-loader')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 const SRC_DIR = path.resolve(__dirname, 'src')
@@ -11,7 +10,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'awesome-typescript-loader']
+        use: ['ts-loader']
       },
       {
         test: /\.(s(a|c)ss)$/,
@@ -47,7 +46,6 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new CheckerPlugin(),
     new ESLintPlugin({
       extensions: ['ts', 'tsx'],
       fix: false,
