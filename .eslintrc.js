@@ -29,10 +29,13 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
+    'key-spacing': 'error',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/type-annotation-spacing': ['error'],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    'react/jsx-indent': ['error', 2],
     'import/order': [
       'error',
       {
