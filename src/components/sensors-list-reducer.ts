@@ -1,17 +1,17 @@
-const initialState = {
-  loading: true,
-  sensors: []
-}
-
 export type Sensor = {[key: string]: any}
-export type State = {
+export interface State {
     loading: boolean,
     sensors: Sensor[],
 }
 
-type Action = {
+export type Action = {
     type: string,
     sensors?: Sensor[],
+}
+
+const initialState: State = {
+  loading: true,
+  sensors: []
 }
 
 export const ACTIONS = {

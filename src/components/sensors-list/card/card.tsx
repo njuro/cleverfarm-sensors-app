@@ -3,21 +3,9 @@ import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 import { Link } from 'react-router-dom'
-
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-})
+import css from './card.module.scss'
 
 type Props = {
     name: string,
@@ -26,21 +14,19 @@ type Props = {
 }
 
 export default function SensorCard ({ name, description, id }: Props) {
-  const classes = useStyles()
-
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={css.root} variant="outlined">
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+        <Typography className={css.title} color="textSecondary" variant="h6" gutterBottom>
           {name}
         </Typography>
-        <Typography variant="body2" component="p">
+        <Typography variant="body1" component="p">
           {description}
         </Typography>
       </CardContent>
       <CardActions>
         <Link to={`/${id}`}>
-          <Button size="small">Details</Button>
+          <Button color="secondary" size="small">Details</Button>
         </Link>
       </CardActions>
     </Card>

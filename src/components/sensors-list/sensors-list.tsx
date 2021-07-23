@@ -1,4 +1,5 @@
 
+import Grid from '@material-ui/core/Grid'
 import React from 'react'
 import SensorCard from './card'
 import type { Sensor } from '../sensors-list-reducer'
@@ -9,9 +10,19 @@ type Props = {
 
 const SensorsList = ({ sensors = [] }: Props) => {
   return (
-    <div>
-      {sensors.map(sensor => <SensorCard name={sensor.name} description={sensor.description} key={sensor.id} id={sensor.id}/>)}
-    </div>
+    <Grid
+    container
+    direction="row"
+    justifyContent="space-around"
+    alignItems="stretch"
+    spacing={2}
+    >
+      {sensors.map(sensor =>
+        <Grid item xs={12} sm={6} key={sensor.id}>
+          <SensorCard name={sensor.name} description={sensor.description} id={sensor.id} />
+        </Grid>
+      )}
+    </Grid>
   )
 }
 

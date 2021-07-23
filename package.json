@@ -7,12 +7,15 @@
     "start": "webpack serve --config ./webpack.config.js --mode development --port 3060",
     "tsc": "tsc",
     "lint": "eslint --cache --ext .ts,.tsx .",
-    "dev": "concurrently \"webpack serve --config ./webpack.config.js --mode development --port 3060\" \"json-server --watch ./data/sensors.json\" "
+    "dev": "concurrently \"webpack serve --config ./webpack.config.js --mode development --port 3060\" \"json-server --watch ./data/sensors.json --port 3070\" "
   },
   "author": "jakub.cejchan@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.12.2",
+    "@material-ui/icons": "^4.11.2",
+    "@types/react-redux": "^7.1.18",
+    "ol": "^6.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",

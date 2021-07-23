@@ -1,13 +1,15 @@
-import LinearProgress from '@material-ui/core/LinearProgress'
+import { AppBar, Toolbar, Typography, LinearProgress, Container } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import './app.scss'
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from 'react-router-dom'
 import SensorsDetail from 'components/sensor-detail'
 import SensorsList from 'components/sensors-list'
+import css from './sensors.module.scss'
 import { PropsFromRedux } from './'
 
 const Sensors = ({ isLoading, fetchSensors, sensors }: PropsFromRedux) => {
@@ -20,7 +22,16 @@ const Sensors = ({ isLoading, fetchSensors, sensors }: PropsFromRedux) => {
   }
   return (
     <Router>
-      <div className="container">
+      <AppBar position="static" className={css.mainBar}>
+        <Toolbar>
+          <Link to="/">
+            <Typography variant="h6">
+              Sensors Simple App
+            </Typography>
+          </Link>
+        </Toolbar>
+      </AppBar>
+      <Container maxWidth="xl">
         <Switch>
           <Route exact path="/">
             <SensorsList sensors={sensors}/>
@@ -29,7 +40,7 @@ const Sensors = ({ isLoading, fetchSensors, sensors }: PropsFromRedux) => {
             <SensorsDetail/>
           </Route>
         </Switch>
-      </div>
+      </Container>
     </Router>
   )
 }

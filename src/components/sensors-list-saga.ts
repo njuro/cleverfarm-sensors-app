@@ -4,7 +4,7 @@ import type { Sensor } from './sensors-list-reducer'
 
 const fetchSensors = async () => {
   try {
-    const response = await fetch('http://localhost:3000/sensors')
+    const response = await fetch('http://localhost:3070/sensors')
     const data = await response.json()
     return [true, data]
   } catch (error) {
